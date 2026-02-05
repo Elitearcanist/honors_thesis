@@ -1,4 +1,4 @@
-\documentclass[fancy,phd]{byuthesis}
+\documentclass[simple,masters]{byuthesis}
 % Class options are simple/fancy and masters/phd.
 % Leave options blank for defaults.
 % Defaults are simple for document style, and masters for degree type.
@@ -28,26 +28,26 @@
 \customtitle{Exceptional Engineering Research \\ That Has Taken Longer Than \\ Everyone Thought It Would}
 
 % Your name goes here (include middle name or initial if it appears on BYU records):
-\author{Emma J. Student}
+\author{Andrew J. McDonald}
 
 % This is the date of graduation
-\date{April 2021}
+\date{April 2026}
 
 % If your degree is not a PhD or MS, then you can overwrite the degree using 
 % the \degree command: \degree{Bachelors of Basics}
+\degree{Bachelor of Science}
 
 % Your department
 \department{Department of Electrical and Computer Engineering}
 
 % The names of your committee members
-\committeechair{Norman D. Smith}
-\committeemember{Mary Q. Scott}
-\committeemember{Steven R. Jones}
-\committeemember{Anna B. Hanna}
+\committeechair{David G. Long}
+\committeemember{Karl F. Warnick}
+\committeemember{Ryan Camacho}
 
 % Include any keywords you would like for your thesis/dissertation
 % (all lowercase except proper nouns)
-\keywords{awesome stuff, killer app, buzz words}
+\keywords{remote sensing, radar, snow, avalanche}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -66,38 +66,38 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % --- Front matter (probably don't need to change)--- %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\frontmatter
-	
-	\titlepage
-	\clearpage
+\frontmatter
 
-	\customtitlepage
-	\clearpage
+\titlepage
+\clearpage
 
-	\input{abstract}
-	\clearpage
+% \customtitlepage % Honors Thesis doesnt want custom titlepage :(
+% \clearpage
 
-	\input{acknowledgments}
-	\clearpage
+\input{abstract}
+\clearpage
 
-	\pdfbookmark{Table of Contents}{tableofcontents}
-	\tableofcontents*
-	\clearpage
+\input{acknowledgments}
+\clearpage
 
-	\listoffigures
-	\clearpage
+\pdfbookmark{Table of Contents}{tableofcontents}
+\tableofcontents*
+\clearpage
 
-	\listoftables
-	\clearpage
+\listoffigures
+\clearpage
 
-	\input{nomenclature}
-	\clearpage
+\listoftables
+\clearpage
+
+\input{nomenclature}
+\clearpage
 
 
 %%%%%%%%%%%%%%%%%%%%%
 % --- Main Body --- %
 %%%%%%%%%%%%%%%%%%%%%
-	\mainmatter
+\mainmatter
 
 % Here you want to include the .tex files where you have your chapter content.  
 % You can name the files whatever you want, but make sure that what you call 
@@ -108,32 +108,32 @@
 % available in the simple template option. 
 
 % Fancy Version
-	\include{fancychapters/chap1}
-	\include{fancychapters/chap2}
-	\include{fancychapters/chap3}
-	\include{fancychapters/chap4}
+% \include{fancychapters/chap1}
+% \include{fancychapters/chap2}
+% \include{fancychapters/chap3}
+% \include{fancychapters/chap4}
 
 % Simple Version
-%	\include{simplechapters/chap1}
-%	\include{simplechapters/chap2}
-%	\include{simplechapters/chap3}
-%	\include{simplechapters/chap4}
+\include{simplechapters/chap1}
+\include{simplechapters/chap2}
+\include{simplechapters/chap3}
+\include{simplechapters/chap4}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 % --- Bibliography --- %
 %%%%%%%%%%%%%%%%%%%%%%%%
-    \chaptermark{References}
-   	\printbibliography[title=References]
+\chaptermark{References}
+\printbibliography[title=References]
 
 
 %%%%%%%%%%%%%%%%%%%%%%
 % --- Appendices --- %
 %%%%%%%%%%%%%%%%%%%%%%
-	\appendix
+\appendix
 
-	\include{appenA}
-	\include{appenB}
+\include{appenA}
+\include{appenB}
 
 
 

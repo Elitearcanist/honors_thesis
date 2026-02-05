@@ -66,8 +66,8 @@
 % ----------------------------------------------
 
 % ----------- page layout -------------
-\setlrmarginsandblock{1.75in}{1.75in}{*}
-\setulmarginsandblock{1in}{*}{1}
+\setlrmarginsandblock{1.75in}{1in}{*} % left, right, ratio
+\setulmarginsandblock{1in}{*}{1} % up, down, ratio
 \checkandfixthelayout
 % ---------------------------------------
 
@@ -101,11 +101,11 @@
 
 %%%% Enable semi bold of opensans font
 \DeclareRobustCommand{\sbshape}{%
-  \not@math@alphabet\sbshape\relax
-    \fontseries{sb}\selectfont
+	\not@math@alphabet\sbshape\relax
+	\fontseries{sb}\selectfont
 }
 % Usage: \textsb{Words to be set with semibold font}
- \DeclareTextFontCommand\textsb{\sbshape}
+\DeclareTextFontCommand\textsb{\sbshape}
 
 % -------------------------------
 
@@ -168,11 +168,11 @@
 	\setlength{\beforechapskip}{54pt}		% Sets vertical space from top of page to baseline of chapter title to 2.2 in.
 	\setlength{\afterchapskip}{48pt}		% Sets vertical space from baseline of chapter title to baseline of following text to be 0.87 in.
 	\renewcommand*{\printchaptername}{}		% We don't print the word "Chapter"
-   	\renewcommand*{\chapternamenum}{}		% No space inserted after "Chapter" and before \chapnum
-   	\renewcommand*{\chapnumfont}{\normalfont\LARGE\sffamily\itshape\colorchapnum}
+	\renewcommand*{\chapternamenum}{}		% No space inserted after "Chapter" and before \chapnum
+	\renewcommand*{\chapnumfont}{\normalfont\LARGE\sffamily\itshape\colorchapnum}
 	\renewcommand*{\chaptitlefont}{\normalfont\LARGE\sffamily\itshape\colorchaptitle}
-    \renewcommand*{\afterchapternum}{}		% No vertical space after "Chapter" before \chaptertitle
-%	\renewcommand*{\printchapternum}{\chapnumfont \thechapter\hsp}
+	\renewcommand*{\afterchapternum}{}		% No vertical space after "Chapter" before \chaptertitle
+	%	\renewcommand*{\printchapternum}{\chapnumfont \thechapter\hsp}
 	\renewcommand*{\printchapternum}{%
 		\@hangfrom{\chapnumfont \thechapter\hsp}}%	% Aligns second line of chapter title with beginning 
 }													% of first line rather than chapter number
@@ -205,7 +205,7 @@
 
 % Table of contents formatting (and LoF and LoT)
 \renewcommand{\contentsname}{Table of Contents}
-\renewcommand{\listfigurename}{List of Figures}	
+\renewcommand{\listfigurename}{List of Figures}
 \renewcommand{\listtablename}{List of Tables}
 
 %% change title style for toc, lof, lot
@@ -269,16 +269,16 @@
 \preto\tableofcontents{\pagestyle{byuchaptertitle}}	% sets page numbering format in frontmatter
 
 \makepsmarks{byu}{%
-\nouppercaseheads
-%\createmark{chapter}{both}{nonumber}{}{}
-\createmark{chapter}{left}{nonumber}{}{}
-\createmark{section}{right}{shownumber}{}{. \space}
-\createplainmark{toc}{both}{\contentsname}
-\createplainmark{lof}{both}{\listfigurename}
-\createplainmark{lot}{both}{\listtablename}
-\createplainmark{bib}{both}{\bibname}
-\createplainmark{index}{both}{\indexname}
-\createplainmark{glossary}{both}{\glossaryname}}
+	\nouppercaseheads
+	%\createmark{chapter}{both}{nonumber}{}{}
+	\createmark{chapter}{left}{nonumber}{}{}
+	\createmark{section}{right}{shownumber}{}{. \space}
+	\createplainmark{toc}{both}{\contentsname}
+	\createplainmark{lof}{both}{\listfigurename}
+	\createplainmark{lot}{both}{\listtablename}
+	\createplainmark{bib}{both}{\bibname}
+	\createplainmark{index}{both}{\indexname}
+	\createplainmark{glossary}{both}{\glossaryname}}
 
 % Set up headers and footers for one-sided (default) or two-sided pagination
 \if@twoside
@@ -286,22 +286,22 @@
 	% Place page number in top outer corner of all pages except chapter title pages
 	% Place chapter title in top inner corner of all pages except chapter title pages
 	\makeoddhead{byu}%
-	    {\normalfont\small\slshape\leftmark}{}{\normalfont\small\slshape\thepage}
+	{\normalfont\small\slshape\leftmark}{}{\normalfont\small\slshape\thepage}
 	\makeevenhead{byu}%
-	    {\normalfont\small\slshape\thepage}{}{\normalfont\small\slshape\leftmark}
+	{\normalfont\small\slshape\thepage}{}{\normalfont\small\slshape\leftmark}
 	\makeoddfoot{byu}%
-	    {}{}{}
+	{}{}{}
 	\makeevenfoot{byu}%
-	    {}{}{}
+	{}{}{}
 \else
 	% one-sided pagination (default)
 	% Place page number in top right corner of all pages except chapter title pages
 	% Place chapter title in top left corner of all pages except chapter title pages
 	\makeoddhead{byu}%
-		{\normalfont\small\slshape\leftmark}{}{\normalfont\small\slshape\thepage}	% include chapter title
+	{\normalfont\small\slshape\leftmark}{}{\normalfont\small\slshape\thepage}	% include chapter title
 	%    {}{}{\normalfont\small\slshape\thepage}	% don't include chapter title
 	\makeoddfoot{byu}%
-	    {}{}{}
+	{}{}{}
 \fi
 
 \pagestyle{byu}
@@ -316,8 +316,8 @@
 
 % hack to suppress annoying hyperref warnings related to \listoffigures, \listoftables, and \printnomenclature
 \pdfstringdefDisableCommands{%
-  \let\leavevmode@ifvmode\@empty
-  \let\kern\@empty
+	\let\leavevmode@ifvmode\@empty
+	\let\kern\@empty
 }
 % ---------------------------------------
 
@@ -328,16 +328,16 @@
 
 % ----------- bibliography --------------
 \if@fancy
-	% do nothing for fancy style here, see fancy style options below
+% do nothing for fancy style here, see fancy style options below
 \else
-	\usepackage[backend=biber,style=ieee,doi=true]{biblatex}
-	\urlstyle{same}
-	% Change type of DOI: and DOI URL to match text
-	\DeclareFieldFormat{doi}{%
-		DOI\addcolon\space
-		\ifhyperref
-		{\lowercase{\href{https://doi.org/#1}{\nolinkurl{#1}}}}
-		{\lowercase{\nolinkurl{#1}}}}
+\usepackage[backend=biber,style=ieee,doi=true]{biblatex}
+\urlstyle{same}
+% Change type of DOI: and DOI URL to match text
+\DeclareFieldFormat{doi}{%
+DOI\addcolon\space
+\ifhyperref
+	{\lowercase{\href{https://doi.org/#1}{\nolinkurl{#1}}}}
+	{\lowercase{\nolinkurl{#1}}}}
 \fi
 % ---------------------------------------
 
@@ -381,7 +381,7 @@
 \RequirePackage{etoolbox}
 \newcommand*{\@printcommitteemember}[1]{#1\\}
 \newlength{\titlebottomadjust}  \setlength{\titlebottomadjust}{-4pt}	% defined to tweak the length of the title page so that
-																		% last line of text is at 1 inch above page bottom
+% last line of text is at 1 inch above page bottom
 \newcommand{\titlepage}{%
 	% for fancy style, set the page margins to be equal to center title on page
 	\if@fancy
@@ -392,23 +392,25 @@
 	\pagestyle{empty}
 	\begin{Spacing}{2.0}
 		\begin{center}
+			Honors Thesis \\
+			\vspace{\fill}
 			\@title \\
 			\vspace{\fill}
 			\@author \\
 			\vspace{\fill}
 			\begin{SingleSpace}
-				A \if@phd dissertation \else thesis \fi submitted to the faculty of \\
-				\@institution \\
-				in partial fulfillment of the requirements for the degree of \\
+				Submitted to Brigham Young University in partial fulfillment of graduation requirements for University Honors \\
 			\end{SingleSpace}
-			\@degree \\
+			\vspace{\fill}
+			\begin{SingleSpace}
+				\@department \\
+				\@institution \\
+				\@date \\
+			\end{SingleSpace}
 			\vspace{\fill}
 			\begin{SingleSpace}
 				\forlistloop{\@printcommitteemember}{\@committeelist}
 			\end{SingleSpace}
-			\vspace{\fill}
-			\@department \\
-			\@institution \\
 			\vspace{\fill}
 			Copyright \textcopyright{} \@copyrightyear{} \@author \\
 			All Rights Reserved
@@ -443,10 +445,10 @@
 	\end{Spacing}
 	\begin{Spacing}{1.4}
 		{\Large
-		\noindent
-		\@author \\
-		\@department \\
-		\@degree} \\
+			\noindent
+			\@author \\
+			\@department \\
+			\@degree} \\
 		\vspace{\fill}
 		\begin{figure}[htbp]
 			\includegraphics[width=3.5in]{figures/college_logo}
@@ -461,16 +463,18 @@
 	\pdfbookmark[0]{ABSTRACT}{abstract}
 	\setlength{\parskip}{\baselineskip}
 	\vspace*{35pt}	% spacing set to match chapter header spacing
-	\begin{flushleft}
-		% {\normalfont\LARGE\bfseries Abstract}    						 % black serif boldface
-		{\normalfont\LARGE\sffamily\colorchaptitle\itshape{Abstract}}    % royal sans serif italics
+	\begin{center}
+		{\normalfont\LARGE\bfseries Abstract}    						 % black serif boldface
+		% {\normalfont\LARGE\sffamily\colorchaptitle\itshape{Abstract}}    % royal sans serif italics
 		\par
-	\end{flushleft}
-	%% The following items should be omitted if the optional custom title page is used
-	% \@title \\[\baselineskip]
-	% \@author \\
-	% \@department, \@shortinstitution \\
-	% \@degree
+
+		%% The following items should be omitted if the optional custom title page is used
+		\@title \\	[\baselineskip]
+		\@author \\
+		\@department, \@shortinstitution \\
+		\@degree
+
+	\end{center}
 	\vspace*{24pt}  % spacing set to match chapter header spacing
 }{%
 	\par
@@ -486,10 +490,10 @@
 	\pdfbookmark[0]{ACKNOWLEDGMENTS}{acknowledgments}
 	\setlength{\parskip}{\baselineskip}
 	\vspace*{35pt}	% spacing set to match chapter header spacing
-	\begin{flushleft}
-		% {\normalfont\LARGE\bfseries Acknowledgments}    						% black serif boldface
-		{\normalfont\LARGE\sffamily\colorchaptitle\itshape{Acknowledgments}}    	% royal sans serif italics
-	\end{flushleft}
+	\begin{center}
+		{\normalfont\LARGE\bfseries Acknowledgments}    						% black serif boldface
+		% {\normalfont\LARGE\sffamily\colorchaptitle\itshape{Acknowledgments}}    	% royal sans serif italics
+	\end{center}
 	\vspace*{24pt}  % spacing set to match chapter header spacing
 }
 % ----------------------------------------
@@ -546,8 +550,8 @@
 \newcommand{\shsp}{\hspace{4pt}}
 \footmarkstyle{\textsuperscript{\scriptsize\itshape #1}}
 \renewcommand{\foottextfont}{\scriptsize}			% slightly smaller fontsize since we are placing footnotes in margin
-\setlength{\footmarkwidth}{0em} 							
-\setlength{\footmarksep}{0em}						
+\setlength{\footmarkwidth}{0em}
+\setlength{\footmarksep}{0em}
 \setlength{\footparindent}{1em}						% paragraph indent for a multi-paragraph footnote
 %\counterwithout{footnote}{chapter}					% do not restart footnote numbering with each chapter
 \footnotesinmargin									% put footnotes in the side margin
@@ -569,12 +573,12 @@
 \captiontitlefont{\footnotesize}
 % this redefinition left justifies the captions in both the right and left margins (needed for two-sided printing)
 \renewcommand*{\sidecapstyle}{%
-%%  \captionnamefont{\bfseries}
-  \ifscapmargleft
-    \captionstyle{\raggedright}%
-  \else
-    \captionstyle{\raggedright}%
-\fi}
+	%%  \captionnamefont{\bfseries}
+	\ifscapmargleft
+		\captionstyle{\raggedright}%
+	\else
+		\captionstyle{\raggedright}%
+	\fi}
 
 % ------------------------------
 
@@ -598,79 +602,79 @@
 % Change type of DOI: and DOI URL to match text
 \urlstyle{same}
 \DeclareFieldFormat{doi}{%
-	DOI\addcolon\space
-	\ifhyperref
+DOI\addcolon\space
+\ifhyperref
 	{\lowercase{\href{https://doi.org/#1}{\nolinkurl{#1}}}}
 	{\lowercase{\nolinkurl{#1}}}}
 
-\if@supercite
-   % Change label color and remove brackets
-   % Other formatting of bibliography handled by byubib.bbx
-   \DeclareFieldFormat{labelnumberwidth}{\color{primary}#1}%
-\fi
-% ------------  Citations ------------------------
-% Some optional citation commands
-\DeclareCiteCommand{\mciten} % only prints number and puts reference in margin
+	\if@supercite
+		% Change label color and remove brackets
+		% Other formatting of bibliography handled by byubib.bbx
+		\DeclareFieldFormat{labelnumberwidth}{\color{primary}#1}%
+	\fi
+	% ------------  Citations ------------------------
+	% Some optional citation commands
+	\DeclareCiteCommand{\mciten} % only prints number and puts reference in margin
 	{}
 	{\printtext[bibhyperref]{\printfield{labelnumber}}%
-	   \usebibmacro{sidecite}}
+		\usebibmacro{sidecite}}
 	{}
 	{}
-\DeclareCiteCommand{\citen} % only prints number, but not in margin (useful for figures)
+	\DeclareCiteCommand{\citen} % only prints number, but not in margin (useful for figures)
 	{}
 	{{\printtext[bibhyperref]{\printfield{labelnumber}}}}
 	{}
 	{}
-\DeclareCiteCommand{\nobibcite} % only prints number and puts reference in margin
+	\DeclareCiteCommand{\nobibcite} % only prints number and puts reference in margin
 	{}
 	{\usebibmacro{sidecite}}
 	{}
 	{}
-\DeclareCiteCommand{\sidecitenumber}
+	\DeclareCiteCommand{\sidecitenumber}
 	{}
 	{{\printtext[bibhyperref]{[\printfield{labelnumber}]}}}
 	{}
 	{}
-\DeclareCiteCommand{\sidecitename}
+	\DeclareCiteCommand{\sidecitename}
 	{}
 	{\printnames{labelname}\unspace{\printtext[bibhyperref]{[\printfield{labelnumber}]}}}
 	{}
 	{}
 
-%% make scite the default citation command for fancy format
-\let\scite=\mcite		% use scite instead of replacing cite
+	%% make scite the default citation command for fancy format
+	\let\scite=\mcite		% use scite instead of replacing cite
 
-% Use sidecite bibliography macro to create citations in the side margin
-% Other citation formatting (e.g. superscript vs on line) handled by byubib.cbx 
-\DeclareFieldFormat{sidecite}{\marginpar{\linespread{1.0}\scriptsize#1}}
-\newbibmacro{sidecite}{%
-  \printtext[sidecite]{%
-     \raggedright%
-     \if@supercite
-        \printtext[bibhyperref]{\textcolor{primary}{\printfield{labelnumber}}\:}
-     \else
-        \printtext[bibhyperref]{\textcolor{primary}{[\printfield{labelnumber}]}}
-     \fi   
-     \textcolor{mediumgray}{%
-     	\printnames{labelname}%
-     	\setunit*{\addcomma\space}%
-     	\printfield[citetitle]{labeltitle}%
-     	\setunit*{\addcomma\space}%
-     	\printfield{year}.%
-     	\newunit
-%		\addperiod
-		\vspace{-0.75\baselineskip}%    % this command decreases the spacing between citations when they come in groups
+	% Use sidecite bibliography macro to create citations in the side margin
+	% Other citation formatting (e.g. superscript vs on line) handled by byubib.cbx 
+	\DeclareFieldFormat{sidecite}{\marginpar{\linespread{1.0}\scriptsize#1}}
+	\newbibmacro{sidecite}{%
+		\printtext[sidecite]{%
+			\raggedright%
+			\if@supercite
+				\printtext[bibhyperref]{\textcolor{primary}{\printfield{labelnumber}}\:}
+			\else
+				\printtext[bibhyperref]{\textcolor{primary}{[\printfield{labelnumber}]}}
+			\fi
+			\textcolor{mediumgray}{%
+				\printnames{labelname}%
+				\setunit*{\addcomma\space}%
+				\printfield[citetitle]{labeltitle}%
+				\setunit*{\addcomma\space}%
+				\printfield{year}.%
+				\newunit
+				%		\addperiod
+				\vspace{-0.75\baselineskip}%    % this command decreases the spacing between citations when they come in groups
+			}%
 		}%
-	}%
-\setunit{}}
-% ---------------------------------------
+		\setunit{}}
+	% ---------------------------------------
 
-% ---------- for testing ---------------
-\newcommand{\myshorttext}{{\color{mediumgray} Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis facilisis sem. Nullam nec mi et neque pharetra sollicitudin. Praesent imperdiet mi nec ante.}}
+	% ---------- for testing ---------------
+	\newcommand{\myshorttext}{{\color{mediumgray} Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis facilisis sem. Nullam nec mi et neque pharetra sollicitudin. Praesent imperdiet mi nec ante.}}
 
-\newcommand{\myshorttexta}{{\color{mediumgray} Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis facilisis sem. Nullam nec mi et neque pharetra sollicitudin. Praesent imperdiet mi nec ante. Donec ullamcorper, felis non sodales commodo, lectus velit ultrices augue, a dignissim nibh lectus placerat pede. Vivamus nunc nunc, molestie ut, ultricies vel, semper in, velit.}}
+	\newcommand{\myshorttexta}{{\color{mediumgray} Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam lobortis facilisis sem. Nullam nec mi et neque pharetra sollicitudin. Praesent imperdiet mi nec ante. Donec ullamcorper, felis non sodales commodo, lectus velit ultrices augue, a dignissim nibh lectus placerat pede. Vivamus nunc nunc, molestie ut, ultricies vel, semper in, velit.}}
 
-% -------------------------------------
+	% -------------------------------------
 
 \fi
 
