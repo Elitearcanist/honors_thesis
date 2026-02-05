@@ -203,21 +203,23 @@
 \setbeforesubsubsecskip{-12pt plus -2pt minus -1pt}
 \setaftersubsubsecskip{1pt plus 0pt}
 
+% TODO this is where I would center the toc, lof, and lot titles
+
 % Table of contents formatting (and LoF and LoT)
 \renewcommand{\contentsname}{Table of Contents}
 \renewcommand{\listfigurename}{List of Figures}
 \renewcommand{\listtablename}{List of Tables}
 
 %% change title style for toc, lof, lot
-% Bold face, size LARGE titles
-%\renewcommand{\printtoctitle}[1]{\LARGE\bfseries #1}
-%\renewcommand{\printloftitle}[1]{\LARGE\bfseries #1}
-%\renewcommand{\printlottitle}[1]{\LARGE\bfseries #1}
+% Size LARGE titles
+\renewcommand{\printtoctitle}[1]{\LARGE #1}
+\renewcommand{\printloftitle}[1]{\LARGE #1}
+\renewcommand{\printlottitle}[1]{\LARGE #1}
 
 % Color, sans serif titles
-\renewcommand{\printtoctitle}[1]{\normalfont\LARGE\sffamily\colorchaptitle\itshape #1}
-\renewcommand{\printloftitle}[1]{\normalfont\LARGE\sffamily\colorchaptitle\itshape #1}
-\renewcommand{\printlottitle}[1]{\normalfont\LARGE\sffamily\colorchaptitle\itshape #1}
+% \renewcommand{\printtoctitle}[1]{\normalfont\LARGE\sffamily\colorchaptitle\itshape #1}
+% \renewcommand{\printloftitle}[1]{\normalfont\LARGE\sffamily\colorchaptitle\itshape #1}
+% \renewcommand{\printlottitle}[1]{\normalfont\LARGE\sffamily\colorchaptitle\itshape #1}
 
 % put page number right after in toc, lof, lot
 \newcommand{\cfthsp}{\hspace{8pt}}			% controls the spacing between the title and the page number in toc, lof, lot
@@ -464,12 +466,12 @@ DOI\addcolon\space
 	\setlength{\parskip}{\baselineskip}
 	\vspace*{35pt}	% spacing set to match chapter header spacing
 	\begin{center}
-		{\normalfont\LARGE\bfseries Abstract}    						 % black serif boldface
+		{\normalfont\LARGE Abstract}    						 % black serif
 		% {\normalfont\LARGE\sffamily\colorchaptitle\itshape{Abstract}}    % royal sans serif italics
 		\par
 
 		%% The following items should be omitted if the optional custom title page is used
-		\@title \\	[\baselineskip]
+		{\normalfont\LARGE \@title} \\	[\baselineskip]
 		\@author \\
 		\@department, \@shortinstitution \\
 		\@degree
@@ -491,7 +493,7 @@ DOI\addcolon\space
 	\setlength{\parskip}{\baselineskip}
 	\vspace*{35pt}	% spacing set to match chapter header spacing
 	\begin{center}
-		{\normalfont\LARGE\bfseries Acknowledgments}    						% black serif boldface
+		{\normalfont\LARGE Acknowledgments}    						% black serif
 		% {\normalfont\LARGE\sffamily\colorchaptitle\itshape{Acknowledgments}}    	% royal sans serif italics
 	\end{center}
 	\vspace*{24pt}  % spacing set to match chapter header spacing
