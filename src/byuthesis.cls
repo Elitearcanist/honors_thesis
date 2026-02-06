@@ -394,9 +394,9 @@ DOI\addcolon\space
 	\pagestyle{empty}
 	\begin{Spacing}{2.0}
 		\begin{center}
-			Honors Thesis \\
+			{\normalfont\LARGE Honors Thesis} \\
 			\vspace{\fill}
-			\@title \\
+			{\normalfont\LARGE \@title} \\
 			\vspace{\fill}
 			\@author \\
 			\vspace{\fill}
