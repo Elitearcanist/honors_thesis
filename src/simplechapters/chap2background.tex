@@ -14,27 +14,41 @@ A radar system works by placing the transmitter and receiver a known distance ap
 The transmitter then sends a known signal, the receiver, rather than solely attempting to detect the main transmission,
 detects the reflections of that signal off of physical objects in the signal's path.
 By using precise timing and some simple math, the distance from the receiver can be calculated.
-The simplest radar equation given in \ref{eq:radar} highlights this principle.
-The distance to the target $R$ is based on the $\Delta_t$ or the time the signal took to reach the target and come back,
+The simplest radar equation given in \ref{eq:radar_range} highlights this principle.
+The distance to the target $R$ is based on the $\Delta t$ or the time the signal took to reach the target and come back,
 times the speed of light over 2
-(the 2 accounting for the there and back of $\Delta_t$). $\Delta_t$ must be very precise,
+(the 2 accounting for the there and back of $\Delta t$). $\Delta t$ must be very precise,
 or the distance will be off by large distances due to the magnitude of the speed of light.
 
-\begin{equation} R = \frac{c_0 * \Delta_t }{2} \label{eq:radar}\end{equation}
+\begin{equation} R = \frac{c_0 * \Delta t }{2} \label{eq:radar_range}\end{equation}
 
 
 The system implemented in this paper is a subset of radar called a frequency-modulated continuous-wave (FMCW) radar.
 FMCW uses a frequency-modulated signal often called a chirp to simplify the signal processing.
-A chirp is a transmitted signal that moves up in frequency over time.
+A chirp is a transmitted signal that moves in frequency over time.
+If the frequency is increased over time, this shape is called an up-chirp.
+Chirps can be made in many ways, a common chirp configuration is a sawtooth shape (see \ref{fig:fmcw}).
+Frequency modulated signals have an added benefit that the time delay can 
+be calculated using the characteristics of the chirp.
+In a pulse radar system the time delay from transmit to receive must be precisely measured.
+With a frequency-modulated signal, the time delay is extracted from the frequency difference
+between transmit and receive \cite{wolff_radartutorial_nodate}.
+Using a frequency-modulated chirp the range equation can be written as \ref{eq:chirp_range}.
+$\Delta f$ represents the change in frequency from transmit to receive and $\frac{df}{dt}$
+is the slope of the transmitted chirp.
+$\Delta f$ is determined by subtracting the received signal from the transmitted one.
+The resulting signal is the frequency difference from transmit to receive and can then be applied
+to \ref{eq:chirp_range} to calculate distance.
+
+\begin{equation} R = \frac{c_0 * \Delta f }{2 * \frac{df}{dt}} \label{eq:chirp_range}\end{equation}
 
 \begin{figure}[h]
     \includegraphics[width=0.5\textwidth, center]{fmcw_chirp.png}
-    \caption{Caption}
+    \caption{A series of sawtooth shaped up-chirps, red representing the transmitted chirp and green the delayed received signal}
     \label{fig:fmcw}
 \end{figure}
 
-\cite{wolff_radartutorial_nodate}
-
 
 % SDRs
-Software defined radios are a commercial product that has grown immensely in the last
+Software defined radios are a commercial product that has grown immensely in the last few decades.
+
