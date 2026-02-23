@@ -16,9 +16,9 @@ or the distance will be off by large distances due to the magnitude of the speed
 
 \begin{equation} R = \frac{c_0 * \Delta t }{2} \label{eq:radar_range}\end{equation}
 
-An important aspect of radar is range resolution.
-Put simply a radar can only differentiate closely spaced objects based on its sample rate.
-% T o d o explain more about range resolution include a formula
+% An important aspect of radar is range resolution.
+% Put simply a radar can only differentiate closely spaced objects based on its sample rate.
+% % T o d o explain more about range resolution include a formula
 
 
 The system implemented in this paper is a subset of radar called a frequency-modulated continuous-wave (FMCW) radar.
@@ -36,7 +36,10 @@ $\Delta f$ represents the change in frequency from transmit to receive and $\fra
 is the slope of the transmitted chirp.
 $\Delta f$ is determined by subtracting the received signal from the transmitted one.
 The resulting signal is the frequency difference from transmit to receive and can then be applied
-to \ref{eq:chirp_range} to calculate distance.
+to equation \ref{eq:chirp_range} to calculate distance.
+The $f_D$ in figure \ref{fig:fmcw} is the doppler shift.
+Doppler shift can be used to determine the velocity of the target.
+Doppler shift will not be used in this paper to determine target velocity.
 
 \begin{equation} R = \frac{c_0 * \Delta f }{2 * \frac{df}{dt}} \label{eq:chirp_range}\end{equation}
 
@@ -50,10 +53,10 @@ to \ref{eq:chirp_range} to calculate distance.
 % SDRs
 \section{Software Defined Radio}
 \label{sec:software_defined_radio}
-Software defined radios are a commercial product that has grown immensely in the last few decades.
-SDRs rely on advanced and configurable RF front ends and FPGAs for configuring and processing collected samples in real time.
-RF front ends such as TODO have a configurable wide band selection the frequencies and a moderate sample rate.
+Software defined radios (SDRs) are a commercial product that has grown immensely in the last few decades.
+SDRs rely on advanced and configurable RF front ends and FPGAs for collecting and processing RF samples in real time.
+RF front ends such as the Analog Devices AD9361 or Lime Microsystems LMS7002M have a configurable selection of frequencies and sample rates.
 FPGA accelerates the signal processing allowing SDRs to be highly configurable, they connect to computers using a USB or ethernet adapter. % TODO figure for SDR layout?
 SDRs have become very versatile tool for a variety of RF applications.
-Lower end SDRs are very common for hobbyist projects and higher end SDRs have found effective use in testing and substituting sophisticated RF systems.
+Lower-end SDRs are very common for hobbyist projects and higher-end SDRs have found effective use in testing and substituting sophisticated RF systems.
 
