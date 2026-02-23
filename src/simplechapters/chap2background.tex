@@ -16,6 +16,10 @@ or the distance will be off by large distances due to the magnitude of the speed
 
 \begin{equation} R = \frac{c_0 * \Delta t }{2} \label{eq:radar_range}\end{equation}
 
+An important aspect of radar is range resolution.
+Put simply a radar can only differentiate closely spaced objects based on its sample rate.
+% T o d o explain more about range resolution include a formula
+
 
 The system implemented in this paper is a subset of radar called a frequency-modulated continuous-wave (FMCW) radar.
 FMCW uses a frequency-modulated signal often called a chirp to simplify the signal processing.
@@ -44,5 +48,12 @@ to \ref{eq:chirp_range} to calculate distance.
 
 
 % SDRs
+\section{Software Defined Radio}
+\label{sec:software_defined_radio}
 Software defined radios are a commercial product that has grown immensely in the last few decades.
+SDRs rely on advanced and configurable RF front ends and FPGAs for configuring and processing collected samples in real time.
+RF front ends such as TODO have a configurable wide band selection the frequencies and a moderate sample rate.
+FPGA accelerates the signal processing allowing SDRs to be highly configurable, they connect to computers using a USB or ethernet adapter. % TODO figure for SDR layout?
+SDRs have become very versatile tool for a variety of RF applications.
+Lower end SDRs are very common for hobbyist projects and higher end SDRs have found effective use in testing and substituting sophisticated RF systems.
 
