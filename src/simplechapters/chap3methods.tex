@@ -34,6 +34,18 @@ sample errors while laptops or desktops would reduce that effect \cite{teisberg_
 Below are diagrams showing how the data was being sent and more optimal data transfer method using SDR to find buffer sizes.
 Below are radargrams showing the improved results.
 
+\begin{figure}[h]
+    \includegraphics[width=0.7\textwidth, center]{old_chirp_send.png}
+    \caption{Original data transfer method using user defined values}
+    \label{fig:old_chirp_send}
+\end{figure}
+
+\begin{figure}[h]
+    \includegraphics[width=0.7\textwidth, center]{new_chirp_send.png}
+    \caption{Improved data transfer method using hardware optimized values}
+    \label{fig:new_chirp_send}
+\end{figure}
+
 
 The LimeSDR Mini showed that SDRs could be used in radar applications, however for Avalanche detection the LimeSDR Mini's hardware specifications would be limiting.
 Notably it only has one channel and a low sample rate.
