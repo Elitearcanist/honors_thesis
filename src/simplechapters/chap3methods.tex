@@ -1,13 +1,13 @@
 \chapter{Methods}
 \label{ch:methods}
 
-Talk about work with LimeSDR
+% Talk about work with LimeSDR
 
-Explain what I have done
-- SDR selection
-- testing code (ORCA, emphasize my additions)
-- types of tests performed
-- data visualization tools
+% Explain what I have done
+% - SDR selection
+% - testing code (ORCA, emphasize my additions)
+% - types of tests performed
+% - data visualization tools
 
 The avalanche detection project started with a low-end SDR.
 It was the LimeSDR Mini from Lime Microsystems.
@@ -26,17 +26,18 @@ A graph of this is shown below. % TODO cite
 The LimeSDR Mini would sometimes miss large amounts of samples which when fed into the data visualizer would create errors and blank spaces in the data.
 We found that the LimeSDR had a specific size for the USB data transfer buffers that it used to communicate to the computer.
 The data was being sent in sizes that did not match the SDRs buffers, which significantly increased the chance of sample errors.
-We redesigned the data transfer to use the hardware buffer size and it significantly reduced the sampling errors.
-This allowed the SDR to be run at a higher sample rates with less errors.
-We also noticed that the host computer also played a big factor in sample errors, using a computer such as a Raspberry Pi 4 would significantly increase sample errors while laptops or desktops would reduce that effect.
-% TODO cite ORCA paper as they analyzed this
+We redesigned the data transfer to use the hardware buffer size, and it significantly reduced the sampling errors.
+This allowed the SDR to be run at a higher sample rates with fewer errors.
+We also noticed that the host computer also played a big factor in sample errors,
+using a computer such as a Raspberry Pi 4 would significantly increase
+sample errors while laptops or desktops would reduce that effect \cite{teisberg_open_2024}.
 Below are diagrams showing how the data was being sent and more optimal data transfer method using SDR to find buffer sizes.
-Additionally below are radargrams showing the 
+Below are radargrams showing the improved results.
 
 
 The LimeSDR Mini showed that SDRs could be used in radar applications, however for Avalanche detection the LimeSDR Mini's hardware specifications would be limiting.
 Notably it only has one channel and a low sample rate.
 We decided to switch to a more powerful and more expensive SDR: the Ettus Research USRP B210 as it has two channels and almost double the sample rate.
-In addition its other RF properties would make it an improvement over the LimeSDR Mini.
+In addition, its other RF properties would make it an improvement over the LimeSDR Mini.
 With the B210 we also decided to switch software tools to the USRP driver as this was the common tool with other projects using this SDR.
 

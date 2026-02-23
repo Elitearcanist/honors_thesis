@@ -1,2 +1,10 @@
 snowmobilers
 sawtooth
+Microsystems
+FPGAs
+SDRs
+ethernet
+LimeSDR
+SoapySDR
+Ettus
+USRP
