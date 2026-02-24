@@ -9,33 +9,41 @@
 % - types of tests performed
 % - data visualization tools
 
-The avalanche detection project started with a low-end SDR.
-It was the LimeSDR Mini from Lime Microsystems.
-This SDR only has one transmit received Channel and a sample rates of 30.72 MSPS and a frequency range of 10 MHz - 3.5 GHz.
-For this SDR we used the software suite SoapySDR which abstracts SDR commands for a variety of different SDR products and models into one driver interface.
-We connected the SDR to a cart with two 2.4 GHz horn antennas and a computer to issue commands and collect samples.
+% TODO start more gradually
+
+The avalanche detection project started with a low-end SDR, the LimeSDR Mini from Lime Microsystems.
+This SDR only has one transmit channel and a sample rates of 30.72 MSPS with a frequency range of 10 MHz - 3.5 GHz.
+For this SDR we used the software suite SoapySDR which abstracts SDR commands for a
+variety of different SDR products and models into one driver interface \cite{noauthor_home_nodate}.
+We connected the SDR to two 2.4 GHz horn antennas and a computer to issue commands and collect samples.
 Using SoapySDR we collected samples at 2.4 GHz on the LimeSDR Mini to test its ability as a radar.
-Then using a corner reflector (which makes a good radar target as all incoming electromagnetic waves reflected back),
-the target would slowly be moved away as the SDR collected samples.
-Then using data visualization software generated the FFT of the difference signal for each chirp.
+Using a corner reflector (which makes a good radar target as all incoming electromagnetic waves reflected back),
+a target was slowly moved away as the SDR collected samples.
+Then, using data visualization software generated the FFT of the difference signal for each chirp.
 The data shows bright spots where high signal strength was detected.
 As the target moved away from the radar the bright showing the corner reflector was detected at further ranges.
-A graph of this is shown below. % TODO cite
+A graph of this is shown in \ref{fig:lime_results}.
 
 
 The LimeSDR Mini would sometimes miss large amounts of samples which when fed into the data visualizer would create errors and blank spaces in the data.
 We found that the LimeSDR had a specific size for the USB data transfer buffers that it used to communicate to the computer.
 The data was being sent in sizes that did not match the SDRs buffers, which significantly increased the chance of sample errors.
 We redesigned the data transfer to use the hardware buffer size, and it significantly reduced the sampling errors.
+Figure \ref{fig:bad_chirps} highlight corrupted samples and the trailing zeroes from the SDR buffers.
 This allowed the SDR to be run at a higher sample rates with fewer errors.
 We also noticed that the host computer also played a big factor in sample errors,
 using a computer such as a Raspberry Pi 4 would significantly increase
 sample errors while laptops or desktops would reduce that effect \cite{teisberg_open_2024}.
 Figure \ref{fig:old_chirp_send} shows the original data transfer method.
 Figure \ref{fig:new_chirp_send} shows the improved data transfer method.
-Below are radargrams showing the improved results.
+With the improved data transfer method results like figure \ref{fig:lime_results} were collected,
+it shows the corner reflector slowly being moved away from the radar.
 
 \begin{figure}[h]
+    \includegraphics[width=1\textwidth, center]{lime_bad_chirps.png}
+    \caption{A collected set of data showing trailing zeros and corrupted samples}
+    \label{fig:bad_chirps}
+
     \includegraphics[width=1\textwidth, center]{old_chirp_send.png}
     \caption{Original data transfer method using user defined values}
     \label{fig:old_chirp_send}
@@ -44,21 +52,18 @@ Below are radargrams showing the improved results.
     \caption{Improved data transfer method using hardware optimized values}
     \label{fig:new_chirp_send}
 
-
-    \includegraphics[width=1\textwidth, center]{lime_bad_chirps.png}
-    \caption{Original data transfer method using user defined values}
-    \label{fig:bad_chirps}
-
     \includegraphics[width=1\textwidth, center]{lime_results.png}
     \caption{FFT Results of LimeSDR Mini}
     \label{fig:lime_results}
 \end{figure}
 
 
-The LimeSDR Mini showed that SDRs could be used in radar applications, however for Avalanche detection the LimeSDR Mini's hardware specifications would be limiting.
-Notably it only has one channel and a low sample rate.
-We decided to switch to a more powerful and more expensive SDR: the Ettus Research USRP B210 as it has two channels and almost double the sample rate.
-In addition, its other RF properties would make it an improvement over the LimeSDR Mini.
-With the B210 we also decided to switch software tools to the USRP driver as this was the common tool with other projects using this SDR.
+The LimeSDR Mini work was adequate to demonstrate that SDRs could be used in radar applications,
+however for Avalanche detection the LimeSDR Mini's hardware specifications are limiting.
+Notably, it only has one channel and a low sample rate.
+We decided to switch to a more powerful and expensive SDR:
+the Ettus Research USRP B210 as it has two channels and almost double the sample rate.
+In addition, the B210's RF properties would make it an improvement over the LimeSDR Mini.
+With the B210 we also decided to switch software tools to the USRP driver as this was the common tool with other projects using this SDR. % TODO awkward
 
 
