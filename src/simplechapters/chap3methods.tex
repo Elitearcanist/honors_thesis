@@ -66,4 +66,17 @@ the Ettus Research USRP B210 as it has two channels and almost double the sample
 In addition, the B210's RF properties would make it an improvement over the LimeSDR Mini.
 With the B210 we also decided to switch software tools to the USRP driver as this was the common tool with other projects using this SDR. % TODO awkward
 
+We used a software program called Open Radar Coding Architecture or ORCA \cite{teisberg_open_2024}.
+It was a project designed for using SDRs in ground penetrating radar.
+It was a valuable tool in collecting data in an organized and configurable way, however, it lacked key features for avalanche detection.
+I added changes to allow multi-channel data collection and configurations for using the B210 SDR.
+For data visualization, ORCA had a few tools that would did not work effectively with multiple channels.
+I made significant changes and additions to improve data visualization for generating the radar data.
 
+To test the new software tools data was collected using the B210 on its two channels.
+Unfortunately when using two channels on the B210 the sample rate must be lowered to 30 MHz
+rather than the full 60 MHz that can be used on one channel.
+Initial results were collected in a similar fashion to the lime SDR where a corner reflector was
+slowly moved away from the radar while it collects samples.
+The B210 has notable advantages over the LimeSDR being able to operate at a higher frequency (5.8 GHz), collect larger sums of data
+and operate on two channels.
