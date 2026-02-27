@@ -4,26 +4,36 @@
 In the 2024-2025 Winter Season, 22 skiers, snowboarders, snowmobilers, and hikers died due to avalanches. % TODO cite
 Avalanches present a constant risk to those exploring the outdoors.
 
-\section{Definitions}
-\label{sec:definitions}
+% \section{Definitions}
+% \label{sec:definitions}
 
-Do I include a SDR section?
+% Do I include a SDR section?
 
 \section{Literature Review}
 \label{sec:literature_review}
 
 % Paragraph about SDR radar research
-Software-defined radios have had a significant increase in usage in radar applications in the last decade. % TODO cite reviewing SDR in radar
+Software-defined radios have had a significant increase in usage in radar applications in the last decade \cite{feng_reviewing_2020-2}.
 The increase in radar research using SDRs has come from the improvement in SDR capabilities.
 Feng, Mughees and Wollesen's review of SDRs in radar systems is an effective summary of SDR radar research from 2010 to 2020.
-My introductory review will focus on more recent publications in SDR Radar research.
+My introductory review will focus on more recent publications in SDR Radar research
+as well as work done at BYU in this research area.
 
-More recent radar research with SDRs has seen improvements in processing through GPU acceleration. % TODO cite GPU paper
-Another paper used a low end SDR, the "Adalm-PLUTO" to detect landmines for use in robotic landmine removal systems. % TODO cite Bossi
+More recent radar research with SDRs has seen improvements in processing through GPU acceleration \cite{li_design_2022}.
+Another paper used a low end SDR, the "Adalm-PLUTO" to detect landmines for use in robotic landmine removal systems \cite{bossi_versatile_2022}.
 This system functioned as a ground penetrating radar.
 
 
-% BYUs prior work in SDR radar and avalanche detection
-Avalanche detection systems have also been researched at BYU for several years. One paper % TODO
-
-patent, master thesis by Andrew Monk 2020. Steven preson 2010 snow avalanche idea. Nick Kohls 2021.
+\subsection{Prior BYU Work}
+\label{sec:prior_byu_work}
+SDR-based radar-systems have also been researched at BYU for several years.
+One paper by Andrew Monk investigated the logistics and feasibility of an SDR as a Radar Front-End \cite{monk_exploration_2020}.
+The paper focused on different software and hardware options for running an SDR-based Radar Front-End.
+GNU Radio Companion, the LimeSuite GUI and API, and SoapySDR were considered as software options.
+For hardware, the focus was on the LimeSDR-Mini as it was determined to be optimal by the paper's criteria
+which was focused on a low-cost CubeSAT application. % TODO define CubeSAT?
+Nicholas Kohls' paper from 2021 demonstrated that the LimeSDR-Mini
+functioned as a short-range radar \cite{kohls_software_2021}.
+It was shown that the LimeSDR-Mini could accurately detect targets at short distances.
+The paper also noted the many shortcomings of the LimeSDR-Mini, such as
+the high data corruption rate (about 25\%) and lack of phase coherency.
