@@ -9,3 +9,6 @@ SoapySDR
 Ettus
 USRP
 Warnick
+Kohls
+LimeSDR-Mini
+LimeSuite
