@@ -50,6 +50,21 @@ However, Doppler shift is not used in this paper.
     \label{fig:fmcw}
 \end{figure}
 
+\section{Beamforming}
+\label{sec:beamforming}
+% TODO needs some work, fill gaps, add pictures?
+Beamforming is a powerful technique that can be applied to a radar system in analog or digital, the basic principle is the same in either case.
+In a radio system with more than one receive antenna, often called an array, beamforming can be applied.
+When an electromagnetic wave hits the receive elements, it's received at different times between elements.
+When the received signals are added together, the phase offsets between channels will create a pattern of constructive and destructive interference, which creates a combined antenna pattern or an array pattern.
+This effect can be used to steer the combined receive channels array pattern.
+By applying a phase delay to the individual receive channels, the combined receiver array pattern can be manipulated to electronically point the direction the array is receiving from.
+This technique has been effectively applied for decades to electronically control array patterns, allowing one-dimensional or two-dimensional beamforming.
+Beamforming can be applied digitally.
+Each receive channel is sampled through an analog-to-digital converter.
+Then, with each channel's data, phase delay can be applied digitally to steer the array’s beam.
+Digital beamforming has the added benefit that beams can be steered in software, meaning the data can be manipulated to form multiple beam directions simultaneously.
+
 
 % SDRs
 \section{Software Defined Radio}
