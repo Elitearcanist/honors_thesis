@@ -8,13 +8,14 @@ A radar system works by placing the transmitter and receiver a known distance ap
 The transmitter then sends a known signal, the receiver, rather than solely attempting to detect the main transmission,
 detects the reflections of that signal off of physical objects in the signal's path.
 By using precise timing and some simple math, the distance from the transmitter to the target object and back to the receiver can be calculated.
-The simplest radar equation given in Eq. \ref{eq:radar_range} highlights this principle.
+The simplest radar equation given in Eq. \ref{eq:radar_range} highlights this principle
+\begin{equation} R = \frac{c_0 * \Delta t }{2} \label{eq:radar_range}\end{equation}.
 The distance to the target $R$ is based on the $\Delta t$ or the time the signal took to reach the target and come back,
-times the speed of light over 2
-(the 2 accounting for the two-way travel). $\Delta t$ must be very precisely determined,
+times the speed of light over two
+(the two accounting for the two-way travel). $\Delta t$ must be very precisely determined,
 or the distance will be off due to the magnitude of the speed of light.
 
-\begin{equation} R = \frac{c_0 * \Delta t }{2} \label{eq:radar_range}\end{equation}
+
 
 % An important aspect of radar is range resolution.
 % Put simply a radar can only differentiate closely spaced objects based on its sample rate.
@@ -25,13 +26,14 @@ The system implemented in this paper is a subset of radar called a frequency-mod
 FMCW uses a frequency-modulated signal often called a chirp to simplify the signal processing.
 A chirp is a transmitted signal that moves in frequency over time.
 If the frequency is increased over time, this shape is called an up-chirp.
-Chirps can be made in many ways, a common chirp configuration is a sawtooth shape (Eq. \ref{fig:fmcw}).
+Chirps can be made in many ways, a common chirp configuration is a sawtooth shape (Figure \ref{fig:fmcw}).
 Frequency modulated signals have an added benefit that the time delay can
 be calculated using the characteristics of the chirp.
 In a pulse radar system the time delay from transmit to receive must be precisely measured.
 With a frequency-modulated signal, the time delay is extracted from the frequency difference
 between transmit and receive \cite{wolff_radartutorial_nodate}.
-Using a frequency-modulated chirp the range equation can be written as in Eq. \ref{eq:chirp_range}.
+Using a frequency-modulated chirp the range equation can be written as in Eq. \ref{eq:chirp_range}
+\begin{equation} R = \frac{c_0 * \Delta f }{2 * \frac{df}{dt}} \label{eq:chirp_range}\end{equation}.
 $\Delta f$ represents the change in frequency from transmit to receive and $\frac{df}{dt}$
 is the slope of the transmitted chirp.
 $\Delta f$ is determined by subtracting the received signal from the transmitted one.
@@ -41,7 +43,7 @@ The $f_D$ in Figure \ref{fig:fmcw} is the Doppler shift.
 Doppler shift can be used to determine the velocity of the target.
 However, Doppler shift is not used in this paper.
 
-\begin{equation} R = \frac{c_0 * \Delta f }{2 * \frac{df}{dt}} \label{eq:chirp_range}\end{equation}
+
 
 \begin{figure}[h]
     \includegraphics[width=0.5\textwidth, center]{fmcw_chirp.png}
@@ -54,15 +56,15 @@ However, Doppler shift is not used in this paper.
 \label{sec:beamforming}
 % TODO needs some work, fill gaps, add pictures?
 Beamforming is a powerful technique that can be applied to a radar system in analog or digital, the basic principle is the same in either case.
-In a radio system with more than one receive antenna, often called an array, beamforming can be applied.
+In a radio system with more than one receive antenna, called an array, beamforming can be applied.
 When an electromagnetic wave hits the receive elements, it's received at different times between elements.
 When the received signals are added together, the phase offsets between channels will create a pattern of constructive and destructive interference, which creates a combined antenna pattern or an array pattern.
 This effect can be used to steer the combined receive channels array pattern.
-By applying a phase delay to the individual receive channels, the combined receiver array pattern can be manipulated to electronically point the direction the array is receiving from.
+By applying a phase delay to the individual receive channels, the combined receiver array pattern can be manipulated to electronically point the direction from which the array is receiving.
 This technique has been effectively applied for decades to electronically control array patterns, allowing one-dimensional or two-dimensional beamforming.
 Beamforming can be applied digitally.
 Each receive channel is sampled through an analog-to-digital converter.
-Then, with each channel's data, phase delay can be applied digitally to steer the array’s beam.
+Then, with each channel's data, phase delay can be applied digitally to steer the array's beam.
 Digital beamforming has the added benefit that beams can be steered in software, meaning the data can be manipulated to form multiple beam directions simultaneously.
 
 

@@ -12,11 +12,10 @@ Avalanches present a constant risk to those exploring the outdoors.
 \section{Literature Review}
 \label{sec:literature_review}
 
-% Paragraph about SDR radar research
-Software-defined radios have had a significant increase in usage in radar applications in the last decade \cite{feng_reviewing_2020-2}.
+Software-defined radios (SDRs) have had a significant increase in usage in radar applications in the last decade.
 The increase in radar research using SDRs has come from the improvement in SDR capabilities.
-Feng, Mughees and Wollesen's review of SDRs in radar systems is an effective summary of SDR radar research from 2010 to 2020.
-My introductory review will focus on more recent publications in SDR Radar research
+Feng, Mughees and Wollesen's review of SDRs in radar systems is an effective summary of SDR radar research from 2010 to 2020  \cite{feng_reviewing_2020}.
+This introductory review will focus on more recent publications in SDR Radar research
 as well as work done at BYU in this research area.
 
 More recent radar research with SDRs has seen improvements in processing through GPU acceleration \cite{li_design_2022}.
@@ -25,7 +24,7 @@ This system functioned as a ground penetrating radar.
 In 2024 a University in Bulgaria used SDRs as a frontend for a doppler radar,
 they demonstrated that the radar could detect targets up to 50 meters and could detect distance and doppler shift \cite{ivanov_design_2024}.
 Another notable paper is "A Phased Array Radar Based on Software-Defined Radio" \cite{chen_phased_2025}.
-They did not use a commercial SDR, but the RF frontend used the AD9361 which is software defined.
+They did not use a commercial SDR, but the Radio Frequency (RF) frontend used the AD9361 which is software defined.
 The radar system in the paper is a custom SDR.
 They demonstrated that their radar could use 8 channel beamforming to accurately beamform
 and detect targets in a 90 degree scan angle.
@@ -35,11 +34,11 @@ and detect targets in a 90 degree scan angle.
 \label{sec:prior_byu_work}
 SDR-based radar-systems have also been researched at BYU for several years.
 One paper by Andrew Monk investigated the logistics and feasibility of an SDR as a Radar Front-End \cite{monk_exploration_2020}.
-The paper focused on different software and hardware options for running an SDR-based Radar Front-End.
+Monk's paper focused on different software and hardware options for running an SDR-based Radar Front-End.
 GNU Radio Companion, the LimeSuite GUI and API, and SoapySDR were considered as software options.
 For hardware, the focus was on the LimeSDR-Mini as it was determined to be optimal by the paper's criteria
 which was focused on a low-cost CubeSAT application. % TODO define CubeSAT?
-Nicholas Kohls' paper from 2021 demonstrated that the LimeSDR-Mini
+Nicholas Kohls' paper demonstrated that the LimeSDR-Mini
 functioned as a short-range radar \cite{kohls_software_2021}.
 It was shown that the LimeSDR-Mini could accurately detect targets at short distances.
 The paper also noted the many shortcomings of the LimeSDR-Mini, such as
