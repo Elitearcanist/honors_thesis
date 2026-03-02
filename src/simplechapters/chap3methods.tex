@@ -10,9 +10,9 @@
 % TODO start more gradually
 \section{Project Objectives}
 \label{sec:project_objectives}
-Using a low to mid-range SDR this project aims to detect avalanches and identify targets such as skiers or hikers
+Using a low to mid-range SDR, this project aims to detect avalanches and identify targets such as skiers or hikers
 to improve avalanche safety.
-To do this the avalanche detection system will apply basic Radar principles to identify the location and size of targets.
+To do this the avalanche detection system will apply basic radar principles to identify the location and size of targets.
 First, the range data extracted from the frequency differenct from transmit to receive is used to determine distance.
 This is mapped to rows projected on the mountainside, where each row represents a distance from the radar.
 When samples from the two channels are read into the computer, the computer will apply digital beamforming.
@@ -52,12 +52,12 @@ A graph of this is shown in Figure \ref{fig:lime_results}.
 
 \begin{figure}
     \includegraphics[width=1\textwidth, center]{lime_results.png}
-    \caption{FFT Results of LimeSDR-Mini.
+    \caption{FFT Results of LimeSDR-Mini, showing a moving target.
     This data includes null data subtraction to remove the effects of leakage
     (signals directly from the transmitter to the receiver) and stationary targets.
-    Zero frequency is near the center of the graph with the x-axis and is proportional to range.
+    The x-axis is proportional to range.
     The chirp number is on the y-axis and is proportional to time.
-    The bright patch starting near the center and moving out is the detected corner reflector.}
+    The bright patch starting near the center and moving right is the detected corner reflector moving away from the radar.}
     \label{fig:lime_results}
 \end{figure}
 
