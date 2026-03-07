@@ -13,7 +13,7 @@
 Using a low to mid-range SDR, this project aims to detect avalanches and identify targets such as skiers or hikers
 to improve avalanche safety.
 To do this the avalanche detection system will apply basic radar principles to identify the location and size of targets.
-First, the range data extracted from the frequency differenct from transmit to receive is used to determine distance.
+First, the range data extracted from the frequency difference from transmit to receive is used to determine distance.
 This is mapped to rows projected on the mountainside, where each row represents a distance from the radar.
 When samples from the two channels are read into the computer, the computer will apply digital beamforming.
 Setting the receivers in the horizontal or azimuth plane is highly effective because by combining it with the range data
@@ -26,11 +26,11 @@ Then a target can be pinpointed to the physical location on the mountainside.
 \begin{figure}[h]
     \includegraphics[width=0.9\textwidth, center]{mountainside_map.png}
     \caption{A mountainside (AI generated) with the projected grid from the radar system.
-    When a radar target is detected the row is collected from the detected range.
-    The column is determined by digital beamforming, with the target appearing at a specific
-    angle made from the beamforming.
-    The green and orange show two different beams and a grid marker on the mountainside
-    to the location where a specific angle and range map.}
+        When a radar target is detected the row is collected from the detected range.
+        The column is determined by digital beamforming, with the target appearing at a specific
+        angle made from the beamforming.
+        The green and orange show two different beams and a grid marker on the mountainside
+        to the location where a specific angle and range map.}
     \label{fig:mountain_map}
 \end{figure}
 
@@ -54,11 +54,11 @@ A graph of this is shown in Figure \ref{fig:lime_results}.
 \begin{figure}
     \includegraphics[width=1\textwidth, center]{lime_results.png}
     \caption{FFT Results of LimeSDR-Mini, showing a moving target.
-    This data includes null data subtraction to remove the effects of leakage
-    (signals directly from the transmitter to the receiver) and stationary targets.
-    The x-axis is proportional to range.
-    The chirp number is on the y-axis and is proportional to time.
-    The bright patch starting near the center and moving right is the detected corner reflector moving away from the radar.}
+        This data includes null data subtraction to remove the effects of leakage
+        (signals directly from the transmitter to the receiver) and stationary targets.
+        The x-axis is proportional to range.
+        The chirp number is on the y-axis and is proportional to time.
+        The bright patch starting near the center and moving right is the detected corner reflector moving away from the radar.}
     \label{fig:lime_results}
 \end{figure}
 
@@ -80,27 +80,27 @@ which shows the corner reflector slowly being moved away from the radar.
 \begin{figure}[h]
     \includegraphics[width=1\textwidth, center]{lime_bad_chirps.png}
     \caption{Plot of a collected set of data, in time, showing trailing zeros and corrupted samples.
-    Trailing zeros (shown on the right) are a result of the LimeSDR's receive buffer resulting in an
-    incomplete dataset that must be filled with zeros to receive the correct amount of samples for proccessing.
-    Corrupted samples (shown on the left) occur randomly and ruin a chirp's data.
-    Corrupted samples occur more often at higher sample rates, with unoptimized transfer methods and slower computers.}
+        Trailing zeros (shown on the right) are a result of the LimeSDR's receive buffer resulting in an
+        incomplete dataset that must be filled with zeros to receive the correct amount of samples for processing.
+        Corrupted samples (shown on the left) occur randomly and ruin a chirp's data.
+        Corrupted samples occur more often at higher sample rates, with unoptimized transfer methods and slower computers.}
     \label{fig:bad_chirps}
 
     \includegraphics[width=1\textwidth, center]{old_chirp_send.png}
     \caption{Original data transfer buffering using user defined values.
-    A chirp is broken down into the individual chunks that are used for USB data transfer.
-    USB transmission length is determined by the user, which is unoptimized for the hardware.
-    The trailing zeros are included in the transmission.
-    This method is very prone to data corruption.}
+        A chirp is broken down into the individual chunks that are used for USB data transfer.
+        USB transmission length is determined by the user, which is unoptimized for the hardware.
+        The trailing zeros are included in the transmission.
+        This method is very prone to data corruption.}
     \label{fig:old_chirp_send}
 
     \includegraphics[width=1\textwidth, center]{new_chirp_send.png}
     \caption{Improved data transfer buffering using hardware optimized values.
-    A chirp is broken down into the individual chunks that are used for USB data transfer.
-    USB transmission is based on hardware defined values.
-    The improved data transfer method also includes an extra data chunk that is discraded 
-    to remove the trailing zeros included in the transmission.
-    This method significantly reduced data corruption in collected samples.}
+        A chirp is broken down into the individual chunks that are used for USB data transfer.
+        USB transmission is based on hardware defined values.
+        The improved data transfer method also includes an extra data chunk that is discarded
+        to remove the trailing zeros included in the transmission.
+        This method significantly reduced data corruption in collected samples.}
     \label{fig:new_chirp_send}
 \end{figure}
 
@@ -132,8 +132,8 @@ and operate on two channels.
 \begin{figure}
     \includegraphics[width=1\textwidth, center]{test_cart.jpg}
     \caption{The test cart with electronics, including
-    the USRP B210 SDR, three 5.8 GHz horn antennas on a wooden bracket,
-    a desktop computer for collecting data, and a corner reflector for use as a target.}
+        the USRP B210 SDR, three 5.8 GHz horn antennas on a wooden bracket,
+        a desktop computer for collecting data, and a corner reflector for use as a target.}
     \label{fig:test_cart}
 \end{figure}
 
