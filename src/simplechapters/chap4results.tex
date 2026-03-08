@@ -72,13 +72,30 @@ Tests were performed in an open courtyard with a few trees and lamposts as obstr
 The SDR was set to collect samples as a corner reflector was moved away from the radar.
 The results are shown in Figure \ref{fig:corner_moving_away}.
 The radar successfully detected the corner reflector as it moved away over time.
-
+As a further test, a person was used as the target as they would be harder to
+detect and would be a more accurate representation of detecting a potential
+hiker or skier on a mountainside.
+These results are shown in Figure \ref{fig:person_moving_away}.
+As expected a person is much harder for the radar to detect.
+It is difficult to detect a human target beyond 40 meters in the radar's
+current configuration and would need several improvements to detect
+skier's or hikers at several hundred meters.
+% TODO continue
 
 \begin{figure}[h]
     \includegraphics[width=1\textwidth, center]{corner_moving_away.png}
     \caption{Return power plotted against time and reflection distance.
                 The corner reflector is seen as a bright spot
                 increasing in distance over time.
-                The reflector is easily seen travelling out to around 80 meters.}
+                The reflector is easily seen travelling out to 80 meters.}
     \label{fig:corner_moving_away}
+\end{figure}
+
+\begin{figure}[h]
+    \includegraphics[width=1\textwidth, center]{person_moving_away.png}
+    \caption{Return power plotted against time and reflection distance.
+                The person is seen as a spot increasing in distance over time.
+                A person is seen moving out to 35 meters before becoming too faint to see.
+                The brighter vertical bars represent stationary targets such as trees or lamposts.}
+    \label{fig:person_moving_away}
 \end{figure}
