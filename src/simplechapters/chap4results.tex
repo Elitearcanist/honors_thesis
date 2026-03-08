@@ -6,10 +6,79 @@
 
 Now that the B210 has been configured for radar testing it is ready to be used.
 However, in initial testing a target could not be detected.
-The presence of the feed through leakage, signal directly from the transmitter to the receiver, was evident,
-but no other targets could be seen.
+The presence of the feed through leakage, signal directly from the transmitter to the receiver,
+was evident, but no other targets could be seen.
 The gain was adjusted, wired connections checked, signal processing improved,
 but there was still no visible targets.
+Tests were preformed to see how the system functioned, testing individual channels,
+terminating connections, changing gain values.
+The SDR functioned as expected, however, when transmit and receive
+were active at the same time, there was immense leakage
+even when the outputs were terminated.
+The interferance is internal to the SDR and is powerful enough to drown at potential targets.
+The high interferance only presents issues with close targets as they are drowned out.
+Since testing the radar involves close-range targets it is necessary to identify and resolve the issue.
+In detecting avalanches this presents less of an issue since
+the radar does not need to identify close-range targets, only targets hundreds or thousands of meters away.
+To test the interferance, the transmit and receive on one channel were terminated.
+The gain was set to half to measure the intensity of the internal leakage.
+The results are shown in Figure \ref{fig:half_power_leakage}.
+At low power the internal interferance isn't significant but as transmit power increases
+the interferance quickly dominates as shown in Figure \ref{fig:three_fourths_power_leakage}.
 
+\begin{figure}[h]
+    \includegraphics[width=1\textwidth, center]{internal_interferance_1_2.png}
+    \caption{Return power from internal leakage. Transmit and receive ends are terminated.
+            The power at 0m shows the internal leakage.
+            Gain in dB is set to about half of the total available.}
+    \label{fig:half_power_leakage}
+
+    \includegraphics[width=1\textwidth, center]{internal_interferance_3_4.png}
+    \caption{Return power from internal leakage. Transmit and receive ends are terminated.
+            The power at 0m shows the internal leakage.
+            Gain in dB is set to about three fourths of the total available.
+            The noise from the leakage is so severe that close targets can't be detected.}
+    \label{fig:three_fourths_power_leakage}
+\end{figure}
+
+The internal leakage makes it difficult to detect targets.
+To combat this, it was tested using one channel to receive
+and the other to transmit.
+By seperating the channels the interferance dropped as is evident when comparing
+Figures \ref{fig:three_fourths_power_leakage} and \ref{fig:two_channel_power_leakage},
+both datasets were taken at the same gains.
+The reduced interferance is enough to successfully capture and view radar targets.
+
+\begin{figure}[h]
+    \includegraphics[width=1\textwidth, center]{internal_interferance_two_3_4.png}
+    \caption{Return power from internal leakage. Transmit and receive ends are terminated.
+            The power at 0m shows the internal leakage.
+            Gain in dB is set to about three fourths of the total available.
+            The frequency bins are wider because of a lower sample rate (30 MSPS).
+            In this case channel 0 is used for transmit and channel 1 is used for receive
+            to attempt to reduce internal leakage.
+            The Figure shows a dramatic decrease in interferance
+            due to the sepeartion of the two channels.}
+    \label{fig:two_channel_power_leakage}
+\end{figure}
 
 % Explain the results I found and what they mean
+\section{Radar Testing}
+With the radar working with limited interferance the system as a whole could be verified.
+Unfortunately, two channel operation can not be performed without reintroducing
+the high levels of interferance from transmitting and receinving on the same channel.
+However, the higher sample rate of 56 MSPS can be used as only one receive channel is used.
+Tests were performed in an open courtyard with a few trees and lamposts as obstrutions.
+The SDR was set to collect samples as a corner reflector was moved away from the radar.
+The results are shown in Figure \ref{fig:corner_moving_away}.
+The radar successfully detected the corner reflector as it moved away over time.
+
+
+\begin{figure}[h]
+    \includegraphics[width=1\textwidth, center]{corner_moving_away.png}
+    \caption{Return power plotted against time and reflection distance.
+                The corner reflector is seen as a bright spot
+                increasing in distance over time.
+                The reflector is easily seen travelling out to around 80 meters.}
+    \label{fig:corner_moving_away}
+\end{figure}
