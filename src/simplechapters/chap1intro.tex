@@ -4,11 +4,12 @@
 Snow avalanches present a constant risk to those exploring the outdoors.
 In the 2024-2025 Winter Season, 22 skiers, snowboarders, snowmobilers, and hikers died due to avalanches \cite{noauthor_avalancheorg_nodate}.
 Even in maintained areas like ski resorts, avalanches can still occur.
-Detecting avalanches as they occur .
-Equipment for detecting and mitigating avalanches is limited.
+Equipment for detecting and mitigating avalanches is limited and difficult to use.
 % When avalanches do occur people are often buried and 
 If more affordable and effective methods were present, the dangers of avalanches would be reduced.
 This thesis aims to document and test a method of detecting avalanches using radar.
+It will explore the use of software-defined radios (SDRs) in radar systems,
+verify they can be used for avalanche detection and document radar test results.
 
 
 \section{Literature Review}
@@ -25,8 +26,8 @@ Another paper used a low end SDR, the "Adalm-PLUTO" to detect landmines for use 
 This system functioned as a ground penetrating radar.
 In 2024 a University in Bulgaria used SDRs as a frontend for a doppler radar,
 they demonstrated that the radar could detect targets up to 50 meters and could detect distance and doppler shift \cite{ivanov_design_2024}.
-Another notable paper is "A Phased Array Radar Based on Software-Defined Radio" \cite{chen_phased_2025}.
-They did not use a commercial SDR, but their Radio Frequency (RF) frontend used the AD9361 chip which is a widely used in software defined radio.
+Another notable paper is "A Phased Array Radar Based on Software-defined Radio" \cite{chen_phased_2025}.
+They did not use a commercial SDR, but their Radio Frequency (RF) frontend used the AD9361 chip which is a widely used in software-defined radio.
 The radar system in the paper is a custom SDR.
 They demonstrated that their radar could use 8 channel beamforming to accurately beamform
 and detect targets in a 90 degree scan angle.

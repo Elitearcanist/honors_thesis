@@ -69,15 +69,17 @@ Unfortunately, two channel operation can not be performed without reintroducing
 the high levels of interferance from transmitting and receinving on the same channel.
 However, the higher sample rate of 56 MSPS can be used as only one receive channel is used.
 Tests were performed in an open courtyard with a few trees and lamposts as obstrutions.
-The SDR was set to collect samples as a corner reflector was moved away from the radar.
+The SDR was set to collect 1000 chirps at 100 chirps a second, producing 10 seconds of collected data.
+While the SDR was collecting a corner reflector was moved away from the radar.
 The results are shown in Figure \ref{fig:corner_moving_away}.
 The radar successfully detected the corner reflector as it moved away over time.
+The corner reflector was detected up to 80 meters.
 As a further test, a person was used as the target as they would be harder to
 detect and would be a more accurate representation of detecting a potential
 hiker or skier on a mountainside.
 These results are shown in Figure \ref{fig:person_moving_away}.
 As expected a person is much harder for the radar to detect.
-It is difficult to detect a human target beyond 40 meters in the radar's
+It is difficult to detect a human target beyond 35 meters in the radar's
 current configuration and would need improvements to detect
 skier's or hikers at several hundred meters.
 
@@ -101,4 +103,17 @@ skier's or hikers at several hundred meters.
 
 % TODO talk about distance test
 Another observation that was made from the previous tests was the radar's range.
-Running the radar with no corner reflector present produced the Figure \ref{fig:stationary_targets}
+Running the radar with no corner reflector present produced Figure \ref{fig:stationary_targets}.
+The B210 radar system is capable of detecting large targets, in this case, a building at 155 meters.
+The distance to the building was checked using GPS and found to be about 155 meters.
+This showed that the radar can detect large targets accurately up to this range.
+Further improvements and testing would be needed to go beyond this range.
+
+\begin{figure}[h]
+    \includegraphics[width=1\textwidth, center]{stationary_targets.png}
+    \caption{Return power plotted against time and reflection distance.
+                This graph has no moving targets. However a distant target is seen at 155 meters.
+                The target is a large building and shows that the radar is capable of detecting large
+                targets at medium-range distances.}
+    \label{fig:stationary_targets}
+\end{figure}
