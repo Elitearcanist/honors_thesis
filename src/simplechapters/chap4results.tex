@@ -15,61 +15,61 @@ terminating connections, changing gain values.
 The SDR functioned as expected, however, when transmit and receive
 were active at the same time, there was immense leakage
 even when the outputs were terminated.
-The interferance is internal to the SDR and is powerful enough to drown out potential targets.
-The high interferance only presents issues with close targets as they are drowned out.
+The interference is internal to the SDR and is powerful enough to drown out potential targets.
+The high interference only presents issues with close targets as they are drowned out.
 Since testing the radar involves close-range targets it is necessary to identify and resolve the issue.
 In detecting avalanches this presents less of an issue since
 the radar does not need to identify close-range targets, only targets hundreds or thousands of meters away.
-To test the interferance, the transmit and receive on one channel were terminated.
+To test the interference, the transmit and receive on one channel were terminated.
 The gain was set to half to measure the intensity of the internal leakage.
 The results are shown in Figure \ref{fig:half_power_leakage}.
-At half of the available gain the internal interferance isn't significant but as transmit power increases
+At half of the available gain the internal interference isn't significant but as transmit power increases
 to three fourths of the available gain
-the interferance quickly dominates as shown in Figure \ref{fig:three_fourths_power_leakage}.
+the interference quickly dominates as shown in Figure \ref{fig:three_fourths_power_leakage}.
 
 \begin{figure}[h]
-    \includegraphics[width=1\textwidth, center]{internal_interferance_1_2.png}
+    \includegraphics[width=1\textwidth, center]{internal_interference_1_2.png}
     \caption{Return power from internal leakage. Transmit and receive ends are terminated.
-            The power at 0m shows the internal leakage.
-            Gain in dB is set to about half of the total available.}
+        The power at 0m shows the internal leakage.
+        Gain in dB is set to about half of the total available.}
     \label{fig:half_power_leakage}
 
-    \includegraphics[width=1\textwidth, center]{internal_interferance_3_4.png}
+    \includegraphics[width=1\textwidth, center]{internal_interference_3_4.png}
     \caption{Return power from internal leakage. Transmit and receive ends are terminated.
-            The power at 0m shows the internal leakage.
-            Gain in dB is set to about three fourths of the total available.
-            The noise from the leakage is so severe that close targets can't be detected.}
+        The power at 0m shows the internal leakage.
+        Gain in dB is set to about three fourths of the total available.
+        The noise from the leakage is so severe that close targets can't be detected.}
     \label{fig:three_fourths_power_leakage}
 \end{figure}
 
 The internal leakage makes it difficult to detect targets.
 To combat this, it was tested using one channel to receive
 and the other to transmit.
-By seperating the channels the interferance dropped as is evident when comparing
+By seperating the channels the interference dropped as is evident when comparing
 Figures \ref{fig:three_fourths_power_leakage} and \ref{fig:two_channel_power_leakage},
 both datasets were taken at the same gains.
-The reduced interferance is enough to successfully capture and view radar targets.
+The reduced interference is enough to successfully capture and view radar targets.
 
 \begin{figure}[h]
-    \includegraphics[width=0.9\textwidth, center]{internal_interferance_two_3_4.png}
+    \includegraphics[width=0.9\textwidth, center]{internal_interference_two_3_4.png}
     \caption{Return power from internal leakage. Transmit and receive ends are terminated.
-            The power at 0m shows the internal leakage.
-            Gain in dB is set to about three fourths of the total available.
-            The frequency bins are wider because of a lower sample rate (30 MSPS).
-            In this case channel 0 is used for transmit and channel 1 is used for receive
-            to attempt to reduce internal leakage.
-            The Figure shows a dramatic decrease in interferance
-            due to the sepeartion of the two channels.}
+        The power at 0 meters shows the internal leakage.
+        Gain in dB is set to about three fourths of the total available.
+        The frequency bins are wider because of a lower sample rate (30 MSPS).
+        In this case channel 0 is used for transmit and channel 1 is used for receive
+        to attempt to reduce internal leakage.
+        The Figure shows a dramatic decrease in interference
+        due to the separation of the two channels.}
     \label{fig:two_channel_power_leakage}
 \end{figure}
 
 
 \section{Radar Testing}
-With the radar working with limited interferance the system as a whole could be verified.
+With the radar working with limited interference the system as a whole could be verified.
 Unfortunately, two channel operation can not be performed without reintroducing
-the high levels of interferance from transmitting and receinving on the same channel.
+the high levels of interference from transmitting and receiving on the same channel.
 However, the higher sample rate of 56 MSPS can be used as only one receive channel is used.
-Tests were performed in an open courtyard with a few trees and lamposts as obstrutions.
+Tests were performed in an open courtyard with a few trees and lampposts as obstructions.
 The SDR was set to collect 1000 chirps at 100 chirps a second, producing 10 seconds of collected data.
 While the SDR was collecting a corner reflector was moved away from the radar.
 The results are shown in Figure \ref{fig:corner_moving_away}.
@@ -87,18 +87,18 @@ skier's or hikers at several hundred meters.
 \begin{figure}[h]
     \includegraphics[width=0.9\textwidth, center]{corner_moving_away.png}
     \caption{Return power plotted against time and reflection distance.
-                The corner reflector is seen as a bright spot
-                increasing in distance over time.
-                The reflector is easily seen travelling out to 80 meters.}
+        The corner reflector is seen as a bright spot
+        increasing in distance over time.
+        The reflector is easily seen travelling out to 80 meters.}
     \label{fig:corner_moving_away}
 \end{figure}
 
 \begin{figure}[h]
     \includegraphics[width=0.9\textwidth, center]{person_moving_away.png}
     \caption{Return power plotted against time and reflection distance.
-                The person is seen as a spot increasing in distance over time.
-                A person is seen moving out to 35 meters before becoming too faint to see.
-                The brighter vertical bars represent stationary targets such as trees or lamposts.}
+        The person is seen as a spot increasing in distance over time.
+        A person is seen moving out to 35 meters before becoming too faint to see.
+        The brighter vertical bars represent stationary targets such as trees or lampposts.}
     \label{fig:person_moving_away}
 \end{figure}
 
@@ -113,8 +113,8 @@ Further improvements and testing would be needed to go beyond this range.
 \begin{figure}[h]
     \includegraphics[width=0.9\textwidth, center]{stationary_targets.png}
     \caption{Return power plotted against time and reflection distance.
-                This graph has no moving targets. However a distant target is seen at 155 meters.
-                The target is a large building and shows that the radar is capable of detecting large
-                targets at medium-range distances.}
+        This graph has no moving targets. However, a distant target is seen at 155 meters.
+        The target is a large building and shows that the radar is capable of detecting large
+        targets at medium-range distances.}
     \label{fig:stationary_targets}
 \end{figure}
