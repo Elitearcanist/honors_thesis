@@ -4,13 +4,14 @@
 \section{Interference}
 \label{sec:interference}
 
-Now that the B210 has been configured for radar testing it is ready to be used.
-However, in initial testing a target could not be detected.
+With the B210 configured for radar testing it is ready for use.
+At first, the transmit and receive were on the same channel.
+In initial testing a target could not be detected.
 The presence of the feed through leakage, signal directly from the transmitter to the receiver,
-was evident, but no other targets could be seen.
+was evident in these tests, but no other targets could be seen.
 The gain was adjusted, wired connections checked, signal processing improved,
 but there was still no visible targets.
-Tests were performed to see how the system functioned, testing individual channels,
+Additional tests were performed to see how the system functioned, testing individual channels,
 terminating connections, changing gain values.
 The SDR functioned as expected, however, when transmit and receive
 were active at the same time, there was immense leakage
@@ -30,22 +31,23 @@ the interference quickly dominates as shown in Figure \ref{fig:three_fourths_pow
 \begin{figure}[h]
     \includegraphics[width=1\textwidth, center]{internal_interference_1_2.png}
     \caption{Return power from internal leakage. Transmit and receive ends are terminated.
-        The power at 0m shows the internal leakage.
+        The power at 0 meters shows the internal leakage.
         Gain in dB is set to about half of the total available.}
     \label{fig:half_power_leakage}
 
     \includegraphics[width=1\textwidth, center]{internal_interference_3_4.png}
     \caption{Return power from internal leakage. Transmit and receive ends are terminated.
-        The power at 0m shows the internal leakage.
+        The power at 0 meters shows the internal leakage.
         Gain in dB is set to about three fourths of the total available.
         The noise from the leakage is so severe that close targets can't be detected.}
     \label{fig:three_fourths_power_leakage}
 \end{figure}
 
 The internal leakage makes it difficult to detect targets.
-To combat this, it was tested using one channel to receive
-and the other to transmit.
-By seperating the channels the interference dropped as is evident when comparing
+The B210 has two channels and both have one transmit and receive line.
+So, to combat the internal leakage, rather than using one channel for both transmit and receive,
+one channel was used to receive and the other channel to transmit.
+By separating the channels the interference dropped as is evident when comparing
 Figures \ref{fig:three_fourths_power_leakage} and \ref{fig:two_channel_power_leakage},
 both datasets were taken at the same gains.
 The reduced interference is enough to successfully capture and view radar targets.
@@ -66,7 +68,7 @@ The reduced interference is enough to successfully capture and view radar target
 
 \section{Radar Testing}
 With the radar working with limited interference the system as a whole could be verified.
-Unfortunately, two channel operation can not be performed without reintroducing
+Unfortunately, two channel operation cannot be performed without reintroducing
 the high levels of interference from transmitting and receiving on the same channel.
 However, the higher sample rate of 56 MSPS can be used as only one receive channel is used.
 Tests were performed in an open courtyard with a few trees and lampposts as obstructions.
@@ -75,9 +77,8 @@ While the SDR was collecting a corner reflector was moved away from the radar.
 The results are shown in Figure \ref{fig:corner_moving_away}.
 The radar successfully detected the corner reflector as it moved away over time.
 The corner reflector was detected up to 80 meters.
-As a further test, a person was used as the target as they would be harder to
-detect and would be a more accurate representation of detecting a potential
-hiker or skier on a mountainside.
+As a further test, a person was used as the target as they are a more accurate
+representation of detecting a potential hiker or skier on a mountainside.
 These results are shown in Figure \ref{fig:person_moving_away}.
 As expected a person is much harder for the radar to detect.
 It is difficult to detect a human target beyond 35 meters in the radar's
