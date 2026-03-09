@@ -41,12 +41,14 @@ The avalanche detection project started with a low-end SDR, the LimeSDR-Mini fro
 This SDR has only one channel (transmit and receive) and is limited to sample rates less than 30.72 Mega Samples per Second (MSPS) with a frequency range of 10 MHz - 3.5 GHz.
 For this SDR, the software suite SoapySDR is used, which abstracts SDR commands for a
 variety of different SDR products and models into one driver interface \cite{noauthor_home_nodate}.
-The SDR connected two 2.4 GHz horn antennas.
+The SDR is connected two 2.4 GHz horn antennas.
 It employed a computer to issue commands and collect samples.
 Using SoapySDR, samples are collected at 2.4 GHz on the LimeSDR-Mini to test its ability as a radar.
-Using a corner reflector (which makes a very bright radar target as all incoming electromagnetic waves are reflected back),
+Using a corner reflector (which makes a very bright radar target as most incoming electromagnetic waves are reflected back),
 a target is then slowly moved away as the SDR collected samples.
-Then, using data visualization software generated the Fast Fourier Transform (FFT) of the difference signal for each chirp.
+Then, using the difference between the transmitted and received signal is calculated for each chirp.
+The Fast Fourier Transform (FFT) of the difference is calculated to display return power for each chirp,
+the frequency bins of the transform representing a distance from the receiver.
 The data shows bright spots where high signal strength are detected.
 As the target moves away from the radar the bright spots show where the corner reflector was detected.
 A graph of this is shown in Figure \ref{fig:lime_results}.
@@ -130,7 +132,7 @@ The B210 has notable advantages over the LimeSDR-Mini being able to operate at a
 collect larger sums of data, and operate on two channels.
 
 \begin{figure}
-    \includegraphics[width=1\textwidth, center]{test_cart.jpg}
+    \includegraphics[width=1\textwidth, center]{test_cart.png}
     \caption{The test cart with electronics, including
         the USRP B210 SDR, three 5.8 GHz horn antennas on a wooden bracket,
         a desktop computer for collecting data, and a corner reflector for use as a target.}

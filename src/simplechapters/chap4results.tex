@@ -10,12 +10,12 @@ The presence of the feed through leakage, signal directly from the transmitter t
 was evident, but no other targets could be seen.
 The gain was adjusted, wired connections checked, signal processing improved,
 but there was still no visible targets.
-Tests were preformed to see how the system functioned, testing individual channels,
+Tests were performed to see how the system functioned, testing individual channels,
 terminating connections, changing gain values.
 The SDR functioned as expected, however, when transmit and receive
 were active at the same time, there was immense leakage
 even when the outputs were terminated.
-The interferance is internal to the SDR and is powerful enough to drown at potential targets.
+The interferance is internal to the SDR and is powerful enough to drown out potential targets.
 The high interferance only presents issues with close targets as they are drowned out.
 Since testing the radar involves close-range targets it is necessary to identify and resolve the issue.
 In detecting avalanches this presents less of an issue since
@@ -23,7 +23,8 @@ the radar does not need to identify close-range targets, only targets hundreds o
 To test the interferance, the transmit and receive on one channel were terminated.
 The gain was set to half to measure the intensity of the internal leakage.
 The results are shown in Figure \ref{fig:half_power_leakage}.
-At low power the internal interferance isn't significant but as transmit power increases
+At half of the available gain the internal interferance isn't significant but as transmit power increases
+to three fourths of the available gain
 the interferance quickly dominates as shown in Figure \ref{fig:three_fourths_power_leakage}.
 
 \begin{figure}[h]
@@ -50,7 +51,7 @@ both datasets were taken at the same gains.
 The reduced interferance is enough to successfully capture and view radar targets.
 
 \begin{figure}[h]
-    \includegraphics[width=1\textwidth, center]{internal_interferance_two_3_4.png}
+    \includegraphics[width=0.9\textwidth, center]{internal_interferance_two_3_4.png}
     \caption{Return power from internal leakage. Transmit and receive ends are terminated.
             The power at 0m shows the internal leakage.
             Gain in dB is set to about three fourths of the total available.
@@ -84,7 +85,7 @@ current configuration and would need improvements to detect
 skier's or hikers at several hundred meters.
 
 \begin{figure}[h]
-    \includegraphics[width=1\textwidth, center]{corner_moving_away.png}
+    \includegraphics[width=0.9\textwidth, center]{corner_moving_away.png}
     \caption{Return power plotted against time and reflection distance.
                 The corner reflector is seen as a bright spot
                 increasing in distance over time.
@@ -93,7 +94,7 @@ skier's or hikers at several hundred meters.
 \end{figure}
 
 \begin{figure}[h]
-    \includegraphics[width=1\textwidth, center]{person_moving_away.png}
+    \includegraphics[width=0.9\textwidth, center]{person_moving_away.png}
     \caption{Return power plotted against time and reflection distance.
                 The person is seen as a spot increasing in distance over time.
                 A person is seen moving out to 35 meters before becoming too faint to see.
@@ -110,7 +111,7 @@ This showed that the radar can detect large targets accurately up to this range.
 Further improvements and testing would be needed to go beyond this range.
 
 \begin{figure}[h]
-    \includegraphics[width=1\textwidth, center]{stationary_targets.png}
+    \includegraphics[width=0.9\textwidth, center]{stationary_targets.png}
     \caption{Return power plotted against time and reflection distance.
                 This graph has no moving targets. However a distant target is seen at 155 meters.
                 The target is a large building and shows that the radar is capable of detecting large
