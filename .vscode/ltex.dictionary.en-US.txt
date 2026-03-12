@@ -12,3 +12,4 @@ Warnick
 Kohls
 LimeSDR-Mini
 LimeSuite
+contiuous-wave
