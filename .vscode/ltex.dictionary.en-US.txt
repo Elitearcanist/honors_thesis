@@ -13,3 +13,6 @@ Kohls
 LimeSDR-Mini
 LimeSuite
 contiuous-wave
+beamforming
+Beamforming
+beamforming
